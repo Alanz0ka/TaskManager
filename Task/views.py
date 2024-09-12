@@ -9,5 +9,5 @@ class TaskAPIView(APIView):
 
     def get(self, request):
         task = Task.objects.all()
-        serializer = TaskSerializer(task, many=False)
+        serializer = TaskSerializer(task, many=True)
         return Response(serializer.data)
