@@ -94,7 +94,6 @@ A API serve para organizar e automatizar a gestão de tarefas, permitindo que ca
 ## Fontes
 - [Documentação do Django](https://docs.djangoproject.com/en/5.1/)
 - [Google Calendar API](https://developers.google.com/calendar)
-- [Google API Python Client](https://github.com/googleapis/google-api-python-client)
 - [Stack Over Flow](https://stackoverflow.com/questions/tagged/django)
 
 ## Observação
