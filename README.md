@@ -14,7 +14,7 @@ A API serve para organizar e automatizar a gestão de tarefas, permitindo que ca
 - Um projeto configurado no Google Cloud com a API do Google Calendar ativada
 
 ### Instalação e Configuração
-1. Clone o repositório do projeto: `git clone https://github.com/seu-repositorio/taskmanager.git`
+1. Clone o repositório do projeto: `git clone https://github.com/Alanz0ka/TaskManager.git`
 2. Crie e ative um ambiente virtual:
     ```bash
     python -m venv venv
@@ -49,7 +49,7 @@ A API serve para organizar e automatizar a gestão de tarefas, permitindo que ca
     - `titulo`: filtra tarefas pelo título.
 - **Exemplo**:
     ```bash
-    curl -X GET "http://127.0.0.1:8000/api/v1/task/?titulo=Compra&data_inicio=2024-09-10"
+    "http://127.0.0.1:8000/api/v1/task/?titulo=Compra&data_inicio=2024-09-10"
     ```
 
 ### Método POST (Criar uma Tarefa)
@@ -57,7 +57,7 @@ A API serve para organizar e automatizar a gestão de tarefas, permitindo que ca
 - **Descrição**: Cria uma nova tarefa e adiciona um evento no Google Calendar.
 - **Exemplo**:
     ```bash
-    curl -X POST "http://127.0.0.1:8000/api/v1/task/" -H "Content-Type: application/json" -d '{
+    '{
         "titulo": "Nova Tarefa",
         "descricao": "Descrição da tarefa",
         "data": "2024-09-13",
@@ -70,11 +70,11 @@ A API serve para organizar e automatizar a gestão de tarefas, permitindo que ca
 - **Descrição**: Atualiza uma tarefa existente.
 - **Exemplo**:
     ```bash
-    curl -X PUT "http://127.0.0.1:8000/api/v1/task/1/" -H "Content-Type: application/json" -d '{
+    '{
         "titulo": "Tarefa Atualizada",
-        "descricao": "Nova descrição",
-        "data": "2024-09-14",
-        "horario": "10:00:00"
+        "descricao": "Descrição da tarefa",
+        "data": "2024-09-13",
+        "horario": "14:00:00"
     }'
     ```
 
@@ -83,7 +83,7 @@ A API serve para organizar e automatizar a gestão de tarefas, permitindo que ca
 - **Descrição**: Deleta uma tarefa existente e remove o evento associado no Google Calendar.
 - **Exemplo**:
     ```bash
-    curl -X DELETE "http://127.0.0.1:8000/api/v1/task/1/"
+    "http://127.0.0.1:8000/api/v1/task/1/"
     ```
 
 ## Outros Detalhes Relevantes
