@@ -49,44 +49,53 @@ A API serve para organizar e automatizar a gestão de tarefas, permitindo que ca
     - `titulo`: filtra tarefas pelo título.
 - **Exemplo**:
     ```bash
-    "http://localhost:8000/api/v1/task/?titulo=Compra&data_inicio=2024-09-10"
+    curl -X GET "http://127.0.0.1:8000/api/v1/task/?titulo=Compra&data_inicio=2024-09-10"
     ```
 
 ### Método POST (Criar uma Tarefa)
-- **URL**: `http://localhost:8000/api/v1/task/`
+- **URL**: `/api/v1/task/`
 - **Descrição**: Cria uma nova tarefa e adiciona um evento no Google Calendar.
 - **Exemplo**:
     ```bash
-    {
-  "titulo": "Campeonato de Jiu-jitsu",
-  "descricao": "Vou amassar geral",
-  "data": "2024-09-13",
-  "horario": "20:00:00"
-    } 
+    curl -X POST "http://127.0.0.1:8000/api/v1/task/" -H "Content-Type: application/json" -d '{
+        "titulo": "Nova Tarefa",
+        "descricao": "Descrição da tarefa",
+        "data": "2024-09-13",
+        "horario": "14:00:00"
+    }'
     ```
 
-
-
 ### Método PUT (Atualizar uma Tarefa)
-- **URL**: `http://127.0.0.1:8000/api/v1/task/10/`
+- **URL**: `/api/v1/task/{id}/`
 - **Descrição**: Atualiza uma tarefa existente.
 - **Exemplo**:
     ```bash
-    {
-        "id": 10,
+    curl -X PUT "http://127.0.0.1:8000/api/v1/task/1/" -H "Content-Type: application/json" -d '{
         "titulo": "Tarefa Atualizada",
-        "descricao": "tarefa que faz determinada coisa",
-        "data": "2024-09-13",
-        "horario": "20:00:00"
-
-    }
+        "descricao": "Nova descrição",
+        "data": "2024-09-14",
+        "horario": "10:00:00"
+    }'
     ```
 
 ### Método DELETE (Deletar uma Tarefa)
-- **URL**: `/api/v1/task/10/`
+- **URL**: `/api/v1/task/{id}/`
 - **Descrição**: Deleta uma tarefa existente e remove o evento associado no Google Calendar.
-
+- **Exemplo**:
+    ```bash
+    curl -X DELETE "http://127.0.0.1:8000/api/v1/task/1/"
+    ```
 
 ## Outros Detalhes Relevantes
 - O projeto foi configurado para usar a integração com o Google Calendar, por isso, é necessário um arquivo `credentials.json` válido.
 - A autenticação do Google Calendar é feita via OAuth 2.0, e as credenciais são salvas no arquivo `token.pickle` para reutilização.
+- **Importante**: Certifique-se de adicionar a barra `/` ao final de todas as URLs para evitar erros 404.
+
+## Fontes
+- [Documentação do Django](https://docs.djangoproject.com/en/5.1/)
+- [Google Calendar API](https://developers.google.com/calendar)
+- [Google API Python Client](https://github.com/googleapis/google-api-python-client)
+- [Stack Over Flow](https://stackoverflow.com/questions/tagged/django)
+
+## Observação
+- **ChatGpt**: Foi utilizado para auxiliar na correção de bugs, retirada de dúvidas e auxilio da produção desta documentação.
